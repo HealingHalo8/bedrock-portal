@@ -37,10 +37,8 @@ export default class IniteOnMessage extends Module {
       if (!content) return
 
       this.portal.emit('messageReceived', message)
-
-      if (content.toLowerCase() === this.options.command.toLowerCase()) {
-        await this.portal.invitePlayer(message.userId)
-      }
+      
+      await this.portal.invitePlayer(message.userId)
     })
 
     await this.client.connect()
